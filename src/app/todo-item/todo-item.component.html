@@ -1,10 +1,95 @@
 <section>
+  <div class="alert alert-success" role="alert">
   <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />
   <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)">
     {{item.label}}
   </label>
   <form *ngIf="isEditingLabel()" (submit)="setLabel(newLabel.value)">
-    <input #newLabel type="text" [value]="item.label"/>
+    <input class="form-control" #newLabel type="text" [value]="item.label"/>
   </form>
-  <button (click)="delete()">Delete</button>
+  <button class="btn btn-danger btndelete" (click)="delete()"><i class="fa fa-times" aria-hidden="true"></i></button>
+  <button class="btn btn-primary btndelete" data-toggle="modal" [attr.data-target]="'#editItem-' + item.id.substr(6)"><i class="fa fa-pencil-square-o"></i></button>
+  <button class="btn btn-info btndelete" (click)="displayDetails()" data-toggle="modal" [attr.data-target]="'#showItem-' + item.id.substr(6)"><i class="fa fa-search-plus"></i></button>
+
+
+
+    <div class="modal fade" id="editItem-{{item.id.substr(6)}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit item</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Item title:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Description:</label>
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="showItem-{{item.id.substr(6)}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Item informations</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+
+            <div class="container" style="display: none;">
+              <div class="row">
+                <div class="col">
+                  <div class="row">
+                    <div class="col">
+                      <div class="row" id="nomItem"></div>
+                      <div class="row" id="dateItem"></div>
+                    </div>
+                    <div class="col" id="dureeItem"></div>
+                    <div class="col" id="etatItem"></div>
+                  </div>
+                  <div class="row" id="descriptionItem"></div>
+                  <div class="row">
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="col">
+                  <i class="fa fa-google" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="row" id="imagesItem">
+                Image
+              </div>
+            </div>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
 </section>

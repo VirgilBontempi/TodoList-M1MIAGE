@@ -1,8 +1,8 @@
-<p>There are {{getLists().length}} lists</p>
+<p class="alert alert-info">There are {{getLists().length}} lists</p>
 <section>
   <form (ngSubmit)="createList(newListName.value); newListName.value=''">
     <label>Create a new list:</label>
-    <input type="text" #newListName/>
+    <input type="text" placeholder="List title" #newListName/>
   </form>
 </section>
 

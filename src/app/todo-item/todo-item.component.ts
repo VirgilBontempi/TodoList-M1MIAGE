@@ -12,6 +12,7 @@ export class TodoItemComponent implements OnInit, OnChanges {
   @Input() listId: ListID;
   @Input() clock: number;
   private editingLabel = false;
+  private displayed = false;
 
   constructor(private todoListService: TodoListService) { }
 
@@ -44,4 +45,24 @@ export class TodoItemComponent implements OnInit, OnChanges {
   delete() {
     this.todoListService.SERVER_DELETE_ITEM(this.listId, this.item.id);
   }
+
+
+  displayDetails() {
+    if(this.displayed == false) {
+      document.getElementsByClassName("container").item(0).setAttribute("style", "display : block");
+      this.displayed = true;
+
+      document.getElementById("nomItem").innerText = "Tâche : " + this.item.label;
+      //document.getElementById("dateItem").innerText = "Date : " + this.item.dateTime.toDateString();
+      document.getElementById("dureeItem").innerText = "Durée : " + "durée";
+      document.getElementById("etatItem").innerText = this.item.checked ? "Fait !" : "A faire !";
+      document.getElementById("descriptionItem").innerText = "Description : ";
+
+
+    } else {
+      document.getElementsByClassName("container").item(0).setAttribute("style", "display : none");
+      this.displayed = false;
+    }
+  }
+
 }

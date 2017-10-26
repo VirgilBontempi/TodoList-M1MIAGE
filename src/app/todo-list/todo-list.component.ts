@@ -35,4 +35,5 @@ export class TodoListComponent implements OnInit {
       Object.assign({}, this.list.data, {color})
     );
   }
+
 }

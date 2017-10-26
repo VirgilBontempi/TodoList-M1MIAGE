@@ -32,3 +32,16 @@ section.connection {
 section.connection > label:hover {
   background: yellow;
 }
+
+#imagesItem{
+  border-top: 1px solid black;
+  padding: 16px;
+}
+
+.container{
+  border : solid black 1px;
+}
+
+.col .row{
+  padding: 10px;
+}
