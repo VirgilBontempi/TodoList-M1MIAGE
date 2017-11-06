@@ -8,7 +8,7 @@
     <input class="form-control" #newLabel type="text" [value]="item.label"/>
   </form>
   <button class="btn btn-danger btndelete" (click)="delete()"><i class="fa fa-times" aria-hidden="true"></i></button>
-  <button class="btn btn-primary btndelete" data-toggle="modal" [attr.data-target]="'#editItem-' + item.id.substr(6)"><i class="fa fa-pencil-square-o"></i></button>
+  <button class="btn btn-primary btndelete" (click)="displayDetails()" data-toggle="modal" [attr.data-target]="'#showItem-' + item.id.substr(6)"><i class="fa fa-pencil-square-o"></i></button>
   <button class="btn btn-info btndelete" (click)="displayDetails()" data-toggle="modal" [attr.data-target]="'#showItem-' + item.id.substr(6)"><i class="fa fa-search-plus"></i></button>
 
 
@@ -54,6 +54,38 @@
           </div>
           <div class="modal-body">
 
+            <div class="container" style="display: none;">
+              <div class="row">
+                <div class="col">
+                  <div class="row">
+                    <div class="col">
+                      <div class="row" id="nomItem"></div>
+                      <div class="row" id="dateItem"></div>
+                    </div>
+                    <div class="col" id="dureeItem"></div>
+                    <div class="col" id="etatItem"></div>
+                  </div>
+                  <div class="row" id="descriptionItem"></div>
+                  <div class="row">
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="col">
+                  <i class="fa fa-google" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="row" id="imagesItem">
+                <div class="col">
+                  IMAGE 1
+                </div>
+                <div class="col">
+                  IMAGE 2
+                </div>
+                <div class="col">
+                  IMAGE 3
+                </div>
+              </div>
+            </div>
 
             <div class="container" style="display: none;">
               <div class="row">
@@ -76,7 +108,15 @@
                 </div>
               </div>
               <div class="row" id="imagesItem">
-                Image
+                <div class="col">
+                  IMAGE 1
+                </div>
+                <div class="col">
+                  IMAGE 2
+                </div>
+                <div class="col">
+                  IMAGE 3
+                </div>
               </div>
             </div>
 

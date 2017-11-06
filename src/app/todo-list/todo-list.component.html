@@ -1,3 +1,4 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <section class="card" [style.backgroundColor]="getColor()">
   <h3 class="card-header">
     {{list.name}}
@@ -28,15 +29,18 @@
             </form>
 
             <br>
-
-            <app-todo-item *ngFor="let item of list.items"
+            <section draggable *ngFor="let item of list.items" [dragData]="item">
+            <app-todo-item
                            [clock]="item.clock"
                            [item]="item"
                            [listId]="list.id">
             </app-todo-item>
-
+            </section>
           </div>
           <div class="modal-footer">
+            <button type="button"  droppable (onDrop)="onItemDrop($event)" >
+              <i class="fa fa-trash-o fa-3x" aria-hidden="true"></i> 
+            </button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>

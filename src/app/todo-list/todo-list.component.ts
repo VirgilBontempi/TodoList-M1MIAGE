@@ -36,4 +36,8 @@ export class TodoListComponent implements OnInit {
     );
   }
 
+  onItemDrop(e: any) {
+    this.todoListService.SERVER_DELETE_ITEM(this.list.id, e.dragData.id);
+  }
+
 }

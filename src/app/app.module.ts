@@ -12,6 +12,8 @@ import {HttpModule} from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ListsComponent } from './lists/lists.component';
 
+import { Ng2DragDropModule } from 'ng2-drag-drop';
+
 const appRoutes: Routes = [
   {
     path: 'lists',
@@ -29,7 +31,7 @@ const appRoutes: Routes = [
     ListsComponent
   ],
   imports: [
-    BrowserModule, HttpModule, FormsModule,
+    BrowserModule, HttpModule, FormsModule, Ng2DragDropModule.forRoot(),
     RouterModule.forRoot(appRoutes, {useHash: true} )
   ],
   providers: [TodoListService],

@@ -48,21 +48,14 @@ export class TodoItemComponent implements OnInit, OnChanges {
 
 
   displayDetails() {
-    if(this.displayed == false) {
-      document.getElementsByClassName("container").item(0).setAttribute("style", "display : block");
-      this.displayed = true;
+    document.getElementsByClassName("container").item(0).setAttribute("style", "display : block");
+    this.displayed = true;
 
-      document.getElementById("nomItem").innerText = "Tâche : " + this.item.label;
-      //document.getElementById("dateItem").innerText = "Date : " + this.item.dateTime.toDateString();
-      document.getElementById("dureeItem").innerText = "Durée : " + "durée";
-      document.getElementById("etatItem").innerText = this.item.checked ? "Fait !" : "A faire !";
-      document.getElementById("descriptionItem").innerText = "Description : ";
-
-
-    } else {
-      document.getElementsByClassName("container").item(0).setAttribute("style", "display : none");
-      this.displayed = false;
-    }
+    document.getElementById("nomItem").innerText = "Label: " + this.item.label;
+    document.getElementById("dateItem").innerText = "Date: " + "date";
+    document.getElementById("dureeItem").innerText = "Durée: " + "durée";
+    document.getElementById("etatItem").innerText = this.item.checked ? "Fait !" : "A faire !";
+    document.getElementById("descriptionItem").innerText = "Description: desc";
   }
 
 }
